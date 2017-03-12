@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import static java.util.Collections.emptyList;
+import static java.util.Objects.requireNonNull;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
@@ -18,8 +19,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("v1/product")
 public class ProductServiceController {
 
+    private final ProductRepository productRepository;
+
     @Autowired
-    ProductRepository productRepository;
+    public ProductServiceController(ProductRepository productRepository) {
+        this.productRepository = requireNonNull(productRepository, "productRepository");
+    }
 
     @RequestMapping(method = GET)
     public Products getAll() {

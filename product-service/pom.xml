@@ -46,6 +46,14 @@
             <version>3.4</version>
         </dependency>
         <!-- Apache Dependencies -->
+
+        <!-- Elastic -->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>rest</artifactId>
+            <version>5.2.2</version>
+        </dependency>
+        <!-- Elastic -->
     </dependencies>
 
     <build>

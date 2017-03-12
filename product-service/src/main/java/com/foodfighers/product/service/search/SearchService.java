@@ -1,6 +1,7 @@
-package com.foodfighers.product.service;
+package com.foodfighers.product.service.search;
 
 import com.foodfighers.product.api.Product;
+import com.foodfighers.product.api.ProductId;
 import com.foodfighers.product.api.Products;
 
 /**
@@ -10,9 +11,9 @@ public interface SearchService {
 
     void store(Product product);
 
-    Product read(String id);
+    Product read(ProductId id);
 
-    void delete(String id);
+    void delete(ProductId id);
 
     Products search(Search search);
 }

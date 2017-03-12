@@ -1,4 +1,4 @@
-package com.foodfighers.product.service;
+package com.foodfighers.product.service.search;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
