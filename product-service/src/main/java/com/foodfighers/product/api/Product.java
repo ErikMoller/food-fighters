@@ -7,18 +7,18 @@ import static java.util.Objects.requireNonNull;
  */
 public class Product {
 
-    private String id;
+    private ProductId id;
     private String name;
 
     public Product() {
     }
 
-    public Product(String id, String name) {
+    public Product(ProductId id, String name) {
         this.id = requireNonNull(id, "id");
         this.name = requireNonNull(name, "name");
     }
 
-    public String getId() {
+    public ProductId getId() {
         return id;
     }
 

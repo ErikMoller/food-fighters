@@ -1,6 +1,7 @@
 package com.foodfighers.product.repository;
 
 import com.foodfighers.product.api.Product;
+import com.foodfighers.product.api.ProductId;
 import com.foodfighers.product.api.Products;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +14,7 @@ import java.util.Map;
 @Repository
 public class ProductRepositoryInMemory implements ProductRepository {
 
-    private final Map<String,Product> products = new HashMap<>();
+    private final Map<ProductId,Product> products = new HashMap<>();
 
     @Override
     public void store(Product product) {
@@ -21,7 +22,7 @@ public class ProductRepositoryInMemory implements ProductRepository {
     }
 
     @Override
-    public Product read(String id) {
+    public Product read(ProductId id) {
         return products.get(id);
     }
 
@@ -38,7 +39,7 @@ public class ProductRepositoryInMemory implements ProductRepository {
 
 
     @Override
-    public void delete(String id) {
+    public void delete(ProductId id) {
         products.remove(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.foodfighers.product.repository;
 
 import com.foodfighers.product.api.Product;
+import com.foodfighers.product.api.ProductId;
 import com.foodfighers.product.api.Products;
 
 /**
@@ -10,11 +11,11 @@ public interface ProductRepository {
 
     void store(Product product);
 
-    Product read(String id);
+    Product read(ProductId id);
 
     Products readAll();
 
     void update(Product product);
 
-    void delete(String id);
+    void delete(ProductId id);
 }
