@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import static java.util.Collections.emptyList;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
@@ -20,28 +21,36 @@ public class ProductServiceController {
     ProductRepository productRepository;
 
     @RequestMapping(method = GET)
-    public Products getAllProducts() {
+    public Products getAll() {
         return productRepository.readAll();
     }
 
     @RequestMapping(value = "{id}", method = GET)
-    public Product getProduct(@PathVariable("id") String id) {
+    public Product get(@PathVariable("id") String id) {
         return productRepository.read(id);
     }
 
     //curl -H "Content-Type: application/json" -X POST -d '{"id":"2","name":"banana"}' http://localhost:8080/v1/product
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(method = RequestMethod.POST)
-    public void insertProduct(@RequestBody Product product) {
+    public void insert(@RequestBody Product product) {
         productRepository.store(product);
     }
 
     //curl -X DELETE http://localhost:8080/v1/product/1
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
-    public void deleteProduct(@PathVariable("id") String id) {
+    public void delete(@PathVariable("id") String id) {
         productRepository.delete(id);
     }
+
+    //http://localhost:8080/v1/product/search?q=query&f=filter
+    @RequestMapping(value = "search", method = GET)
+    public Products search(@RequestParam("q") String query, @RequestParam("f") String filter) {
+        return new Products(emptyList());
+    }
+
+
 
 
 }
