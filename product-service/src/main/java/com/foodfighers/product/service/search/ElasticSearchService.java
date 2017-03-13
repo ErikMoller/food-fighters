@@ -45,12 +45,22 @@ public class ElasticSearchService implements SearchService {
 
     @Override
     public Product read(ProductId id) {
-        return null;
+        Response response = null;
+        try {
+            response = restClient.performRequest("GET", ENDPOINT+"/"+id.getValue(), Collections.singletonMap("pretty", "true"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return productConverter.convert(response.getEntity());
     }
 
     @Override
     public void delete(ProductId id) {
-
+        try {
+            restClient.performRequest("DELETE",ENDPOINT+"/"+id.getValue(),Collections.emptyMap());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -61,7 +71,7 @@ public class ElasticSearchService implements SearchService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return productConverter.convert(response.getEntity());
+        return productConverter.convertAll(response.getEntity());
     }
 
     @Override

@@ -31,7 +31,18 @@ public class ProductConverter {
                 data, ContentType.APPLICATION_JSON);
     }
 
-    Products convert(HttpEntity httpEntity) {
+    Product convert(HttpEntity httpEntity) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ResponseHit responseHit = null;
+        try {
+            responseHit = objectMapper.readValue(httpEntity.getContent(), ResponseHit.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new Product(ProductId.valueOf(responseHit._id),responseHit.source.name);
+    }
+
+    Products convertAll(HttpEntity httpEntity) {
         ObjectMapper objectMapper = new ObjectMapper();
         ResponseHits responseHits = null;
         try {
@@ -42,6 +53,27 @@ public class ProductConverter {
         return responseHits.hits.hits.stream()
             .map(hit -> new Product(ProductId.valueOf(hit.id),hit.source.name))
             .collect(collectingAndThen(toList(),Products::new));
+    }
+
+    public static class ResponseHit {
+
+        @JsonProperty(value = "_index")
+        private String _index;
+
+        @JsonProperty(value = "_type")
+        private String _type;
+
+        @JsonProperty(value = "_id")
+        private String _id;
+
+        @JsonProperty(value = "_version")
+        private String _version;
+
+        @JsonProperty(value = "found")
+        private String found;
+
+        @JsonProperty(value = "_source")
+        private Source source;
     }
 
     public static class ResponseHits {

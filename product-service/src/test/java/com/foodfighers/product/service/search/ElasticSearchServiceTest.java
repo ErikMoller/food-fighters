@@ -39,4 +39,16 @@ public class ElasticSearchServiceTest {
         Products products = searchService.readAll();
         System.out.println(products);
     }
+
+    @Test
+    public void read() throws Exception {
+        Product product = searchService.read(ProductId.valueOf("AVrEq9FLZPAroqV3da65"));
+        System.out.println(product);
+    }
+
+    @Test
+    public void delete() {
+        searchService.delete(ProductId.valueOf("AVrEq9FLZPAroqV3da65"));
+    }
+
 }
