@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Collections;
 
 import static java.util.Collections.emptyMap;
 import static java.util.Objects.requireNonNull;
@@ -53,7 +54,20 @@ public class ElasticSearchService implements SearchService {
     }
 
     @Override
+    public Products readAll() {
+        Response response = null;
+        try {
+            response = restClient.performRequest("GET", ENDPOINT+"/_search", Collections.singletonMap("pretty", "true"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return productConverter.convert(response.getEntity());
+    }
+
+    @Override
     public Products search(Search search) {
         return null;
     }
+
+
 }

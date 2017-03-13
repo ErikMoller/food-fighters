@@ -2,6 +2,7 @@ package com.foodfighers.product.service.search;
 
 import com.foodfighers.product.api.Product;
 import com.foodfighers.product.api.ProductId;
+import com.foodfighers.product.api.Products;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.junit.BeforeClass;
@@ -31,6 +32,11 @@ public class ElasticSearchServiceTest {
     @Test
     public void put() throws Exception {
         searchService.store(new Product(ProductId.valueOf("1"),"apple"));
+    }
 
+    @Test
+    public void readAll() throws Exception {
+        Products products = searchService.readAll();
+        System.out.println(products);
     }
 }

@@ -15,5 +15,7 @@ public interface SearchService {
 
     void delete(ProductId id);
 
+    Products readAll();
+
     Products search(Search search);
 }
