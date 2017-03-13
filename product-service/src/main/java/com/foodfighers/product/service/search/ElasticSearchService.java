@@ -45,13 +45,13 @@ public class ElasticSearchService implements SearchService {
 
     @Override
     public Product read(ProductId id) {
-        Response response = null;
         try {
-            response = restClient.performRequest("GET", ENDPOINT+"/"+id.getValue(), Collections.singletonMap("pretty", "true"));
+            Response response = restClient.performRequest("GET", ENDPOINT+"/"+id.getValue(), Collections.singletonMap("pretty", "true"));
+            return productConverter.convert(response.getEntity());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return productConverter.convert(response.getEntity());
+        return null;
     }
 
     @Override

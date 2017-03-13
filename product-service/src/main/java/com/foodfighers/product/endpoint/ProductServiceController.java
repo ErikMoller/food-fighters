@@ -3,7 +3,7 @@ package com.foodfighers.product.endpoint;
 import com.foodfighers.product.api.Product;
 import com.foodfighers.product.api.ProductId;
 import com.foodfighers.product.api.Products;
-import com.foodfighers.product.repository.ProductRepository;
+import com.foodfighers.product.service.search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,35 +19,35 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping("v1/product")
 public class ProductServiceController {
 
-    private final ProductRepository productRepository;
+    private final SearchService searchService;
 
     @Autowired
-    public ProductServiceController(ProductRepository productRepository) {
-        this.productRepository = requireNonNull(productRepository, "productRepository");
+    public ProductServiceController(SearchService searchService) {
+        this.searchService = requireNonNull(searchService, "searchService");
     }
 
     @RequestMapping(method = GET)
     public Products getAll() {
-        return productRepository.readAll();
+        return searchService.readAll();
     }
 
     @RequestMapping(value = "{id}", method = GET)
     public Product get(@PathVariable("id") String id) {
-        return productRepository.read(ProductId.valueOf(id));
+        return searchService.read(ProductId.valueOf(id));
     }
 
     //curl -H "Content-Type: application/json" -X POST -d '{"id":"2","name":"banana"}' http://localhost:8080/v1/product
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(method = RequestMethod.POST)
     public void insert(@RequestBody Product product) {
-        productRepository.store(product);
+        searchService.store(product);
     }
 
     //curl -X DELETE http://localhost:8080/v1/product/1
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") String id) {
-        productRepository.delete(ProductId.valueOf(id));
+        searchService.delete(ProductId.valueOf(id));
     }
 
     //http://localhost:8080/v1/product/search?q=query&f=filter
