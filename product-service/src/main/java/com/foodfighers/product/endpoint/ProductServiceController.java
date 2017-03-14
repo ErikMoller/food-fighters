@@ -3,12 +3,12 @@ package com.foodfighers.product.endpoint;
 import com.foodfighers.product.api.Product;
 import com.foodfighers.product.api.ProductId;
 import com.foodfighers.product.api.Products;
+import com.foodfighers.product.service.search.Search;
 import com.foodfighers.product.service.search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import static java.util.Collections.emptyList;
 import static java.util.Objects.requireNonNull;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -53,6 +53,6 @@ public class ProductServiceController {
     //http://localhost:8080/v1/product/search?q=query&f=filter
     @RequestMapping(value = "search", method = GET)
     public Products search(@RequestParam("q") String query, @RequestParam("f") String filter) {
-        return new Products(emptyList());
+        return searchService.search(Search.builder().withQuery(query).withFilter(filter).build());
     }
 }

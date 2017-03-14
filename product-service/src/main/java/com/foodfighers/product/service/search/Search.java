@@ -15,7 +15,7 @@ public class Search {
     private final String query;
     private final Optional<String> filter;
 
-    public Search(Builder builder) {
+    private Search(Builder builder) {
         this.query = requireNonNull(builder.query, "query");
         this.filter = Optional.ofNullable(builder.filter);
     }
@@ -31,6 +31,10 @@ public class Search {
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, SHORT_PREFIX_STYLE);
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     public static class Builder {

@@ -51,4 +51,13 @@ public class ElasticSearchServiceTest {
         searchService.delete(ProductId.valueOf("AVrEq9FLZPAroqV3da65"));
     }
 
+    @Test
+    public void search() {
+        Products products = searchService.search(Search.builder().withFilter("orange").withQuery("orange").build());
+        System.out.println(products);
+
+        products = searchService.search(Search.builder().withFilter("banana").withQuery("banana").build());
+        System.out.println(products);
+    }
+
 }

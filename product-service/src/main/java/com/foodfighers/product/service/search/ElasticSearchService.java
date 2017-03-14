@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.Collections;
 
 import static java.util.Collections.emptyMap;
+import static java.util.Collections.singletonMap;
 import static java.util.Objects.requireNonNull;
 
 /**
@@ -26,6 +26,7 @@ public class ElasticSearchService implements SearchService {
 
     private final RestClient restClient;
     private final ProductConverter productConverter;
+    private final SearchConverter searchConverter = new SearchConverter();
 
     @Autowired
     public ElasticSearchService(RestClient restClient, ProductConverter productConverter) {
@@ -46,7 +47,7 @@ public class ElasticSearchService implements SearchService {
     @Override
     public Product read(ProductId id) {
         try {
-            Response response = restClient.performRequest("GET", ENDPOINT+"/"+id.getValue(), Collections.singletonMap("pretty", "true"));
+            Response response = restClient.performRequest("GET", ENDPOINT+"/"+id.getValue(), singletonMap("pretty", "true"));
             return productConverter.convert(response.getEntity());
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,7 +58,7 @@ public class ElasticSearchService implements SearchService {
     @Override
     public void delete(ProductId id) {
         try {
-            restClient.performRequest("DELETE",ENDPOINT+"/"+id.getValue(),Collections.emptyMap());
+            restClient.performRequest("DELETE",ENDPOINT+"/"+id.getValue(), emptyMap());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -67,7 +68,7 @@ public class ElasticSearchService implements SearchService {
     public Products readAll() {
         Response response = null;
         try {
-            response = restClient.performRequest("GET", ENDPOINT+"/_search", Collections.singletonMap("pretty", "true"));
+            response = restClient.performRequest("GET", ENDPOINT+"/_search", singletonMap("pretty", "true"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -76,8 +77,13 @@ public class ElasticSearchService implements SearchService {
 
     @Override
     public Products search(Search search) {
-        return null;
+        HttpEntity entity = searchConverter.convert(search);
+        Response response = null;
+        try {
+            response = restClient.performRequest("GET", ENDPOINT + "/_search", singletonMap("pretty", "true"), entity);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return productConverter.convertAll(response.getEntity());
     }
-
-
 }
