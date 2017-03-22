@@ -1,13 +1,13 @@
 package com.foodfighers.product.service.search;
 
-import com.foodfighers.product.api.Product;
-import com.foodfighers.product.api.ProductId;
-import com.foodfighers.product.api.Products;
+import com.foodfighers.product.api.*;
 import org.apache.http.HttpHost;
+import org.assertj.core.util.Lists;
 import org.elasticsearch.client.RestClient;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 /**
  * Read all...
@@ -27,6 +27,24 @@ public class ElasticSearchServiceTest {
                 new HttpHost("localhost", 9200, "http"),
                 new HttpHost("localhost", 9201, "http")).build();
         searchService = new ElasticSearchService(restClient,new ProductConverter());
+    }
+
+    @Test
+    public void testJson() {
+        NutritionFact fact = new NutritionFact("name", Measurement.valueOf("10"), Unit.G);
+        Ingredient ingredient1 = Ingredient.valueOf("majs");
+        Ingredient ingredient2 = Ingredient.valueOf("korn");
+        NutritionFacts facts = new NutritionFacts(Lists.newArrayList(fact));
+        Ingredients ingredients = new Ingredients(Lists.newArrayList(ingredient1,ingredient2));
+        Link link = Link.valueOf("http://mathem.se");
+        Product product = Product.builder()
+                .withId(null)
+                .withExternalLink(link)
+                .withIngredients(ingredients)
+                .withNutritionFacts(facts)
+                .withName("name")
+                .build();
+        searchService.store(product);
     }
 
     @Test

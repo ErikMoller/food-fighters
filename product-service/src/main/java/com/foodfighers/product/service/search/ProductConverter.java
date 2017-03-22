@@ -24,8 +24,12 @@ public class ProductConverter {
 
     HttpEntity convert(Product product) {
         String data = "{\n" +
-                "    \"name\" : \"" + product.getName() + "\"\n" +
-                "}";
+                "    \"name\" : \"" + product.getName() + "\",\n" +
+                "    \"ingredients\" : [{\n" +
+                "    \"ingredient\" : \"" + product.getIngredients().getIngredients().get(0).getName() + "\"},\n" +
+                "    {\"ingredient\" : \"" + product.getIngredients().getIngredients().get(1).getName() + "\"\n" +
+                "}]}"
+                ;
         System.out.println(data);
         return new NStringEntity(
                 data, ContentType.APPLICATION_JSON);

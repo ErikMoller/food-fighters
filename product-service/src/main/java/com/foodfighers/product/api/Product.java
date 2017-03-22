@@ -12,6 +12,9 @@ public class Product {
 
     private ProductId id;
     private String name;
+    private Ingredients ingredients;
+    private NutritionFacts nutritionFacts;
+    private Link externalLink;
 
     public Product() {
     }
@@ -19,6 +22,14 @@ public class Product {
     public Product(ProductId id, String name) {
         this.id = requireNonNull(id, "id");
         this.name = requireNonNull(name, "name");
+    }
+
+    public Product(Builder builder) {
+        this.id = builder.id;
+        this.name = requireNonNull(builder.name, "name");
+        this.ingredients = requireNonNull(builder.ingredients, "ingredients");
+        this.nutritionFacts = requireNonNull(builder.nutritionFacts, "nutritionFacts");
+        this.externalLink = requireNonNull(builder.externalLink, "externalLink");
     }
 
     public ProductId getId() {
@@ -29,8 +40,61 @@ public class Product {
         return name;
     }
 
+    public Ingredients getIngredients() {
+        return ingredients;
+    }
+
+    public NutritionFacts getNutritionFacts() {
+        return nutritionFacts;
+    }
+
+    public Link getExternalLink() {
+        return externalLink;
+    }
+
     @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        private ProductId id;
+        private String name;
+        private Ingredients ingredients;
+        private NutritionFacts nutritionFacts;
+        private Link externalLink;
+
+        public Product build() {
+            return new Product(this);
+        }
+
+        public Builder withId(ProductId id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder withName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder withIngredients(Ingredients ingredients) {
+            this.ingredients = ingredients;
+            return this;
+        }
+
+        public Builder withNutritionFacts(NutritionFacts nutritionFacts) {
+            this.nutritionFacts = nutritionFacts;
+            return this;
+        }
+
+        public Builder withExternalLink(Link externalLink) {
+            this.externalLink = externalLink;
+            return this;
+        }
     }
 }
