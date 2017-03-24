@@ -1,0 +1,9 @@
+Ideas/TODO:s
+
+1.) Store every search by date, (for a couple of months or weeks before evicts.) Then store user searches somewhere. Every night then run a job, then compare the search from older date with new date, the diff should be interisting to see if any new products and then send mail to the customer with news for the search....heads up for products missing and then appears again.
+
+2.)  Spring CLI to evict and create test data, good to have from the start to easy recreate test setups.
+
+3.) Spring MVC unit test to test url mappings.
+
+4.) Contract Test and run inmemory elastic for Integration test
