@@ -15,6 +15,6 @@ Ideas/TODO:s
 
 Whats next
 ---------------
-1.) Add prodcuts with real values
+1.) Add prodcuts with real values, shell app commited, use it to ingest test data into product service, and also clear data...
 2.) Get search up and running with simple search + filter, then a full working product-service is up and running.
 3.) Start with gui
