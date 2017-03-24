@@ -4,6 +4,17 @@ Ideas/TODO:s
 
 2.)  Spring CLI to evict and create test data, good to have from the start to easy recreate test setups.
 
-3.) Spring MVC unit test to test url mappings.
+3.) Contract Test and run inmemory elastic for Integration test
 
-4.) Contract Test and run inmemory elastic for Integration test
+4.) Store all ingested data in HDFS for later jobs to use, like prics osv osv..store whole html page for product not just data interested in...
+
+5.) Version handling of rest endopint, wrap product in other objects such as Proudct_V1 and so on...and use converters to be able to backwards compatible. 
+
+6.) Add docker/docker-compose for easy running test system.
+
+
+Whats next
+---------------
+1.) Add prodcuts with real values
+2.) Get search up and running with simple search + filter, then a full working product-service is up and running.
+3.) Start with gui

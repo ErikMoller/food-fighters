@@ -83,8 +83,6 @@ public class ProductServiceApplicationTest {
         restTemplate.postForObject("/v1/product",product,Void.class);
         Products products = restTemplate.getForObject("/v1/product", Products.class);
 
-        ProductId productId = products.getProducts().get(0).getId();
-
         Map<String,String> queryStrings = new HashMap<>();
         queryStrings.put("q","query");
         queryStrings.put("f","filter");
