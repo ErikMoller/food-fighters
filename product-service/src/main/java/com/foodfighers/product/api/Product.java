@@ -26,10 +26,10 @@ public class Product {
 
     public Product(Builder builder) {
         this.id = builder.id;
-        this.name = requireNonNull(builder.name, "name");
-        this.ingredients = requireNonNull(builder.ingredients, "ingredients");
-        this.nutritionFacts = requireNonNull(builder.nutritionFacts, "nutritionFacts");
-        this.externalLink = requireNonNull(builder.externalLink, "externalLink");
+        this.name = builder.name;
+        this.ingredients = builder.ingredients;
+        this.nutritionFacts = builder.nutritionFacts;
+        this.externalLink = builder.externalLink;
     }
 
     public ProductId getId() {

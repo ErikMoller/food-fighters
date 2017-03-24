@@ -9,6 +9,9 @@ public class Measurement {
 
     private double value;
 
+    public Measurement() {
+    }
+
     private Measurement(double value) {
         this.value = requireNonNull(value, "value");
     }
@@ -19,5 +22,9 @@ public class Measurement {
 
     public double getValue() {
         return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 }

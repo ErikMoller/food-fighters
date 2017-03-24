@@ -1,6 +1,7 @@
 package com.foodfighers.product.service.search;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.foodfighers.product.api.Product;
 import com.foodfighers.product.api.ProductId;
@@ -22,14 +23,9 @@ import static java.util.stream.Collectors.toList;
 @Component
 public class ProductConverter {
 
-    HttpEntity convert(Product product) {
-        String data = "{\n" +
-                "    \"name\" : \"" + product.getName() + "\",\n" +
-                "    \"ingredients\" : [{\n" +
-                "    \"ingredient\" : \"" + product.getIngredients().getIngredients().get(0).getName() + "\"},\n" +
-                "    {\"ingredient\" : \"" + product.getIngredients().getIngredients().get(1).getName() + "\"\n" +
-                "}]}"
-                ;
+    HttpEntity convert(Product product) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String data = objectMapper.writeValueAsString(product);
         System.out.println(data);
         return new NStringEntity(
                 data, ContentType.APPLICATION_JSON);
@@ -43,7 +39,7 @@ public class ProductConverter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new Product(ProductId.valueOf(responseHit._id),responseHit.source.name);
+        return new Product(ProductId.valueOf(responseHit._id),responseHit.source.getName());
     }
 
     Products convertAll(HttpEntity httpEntity) {
@@ -55,7 +51,7 @@ public class ProductConverter {
             e.printStackTrace();
         }
         return responseHits.hits.hits.stream()
-            .map(hit -> new Product(ProductId.valueOf(hit.id),hit.source.name))
+            .map(hit -> new Product(ProductId.valueOf(hit.id),hit.source.getName()))
             .collect(collectingAndThen(toList(),Products::new));
     }
 
@@ -77,7 +73,7 @@ public class ProductConverter {
         private String found;
 
         @JsonProperty(value = "_source")
-        private Source source;
+        private Product source;
     }
 
     public static class ResponseHits {
@@ -119,7 +115,7 @@ public class ProductConverter {
         private Double score;
 
         @JsonProperty(value = "_source")
-        private Source source;
+        private Product source;
     }
 
     public static class Shards {

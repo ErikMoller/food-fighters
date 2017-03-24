@@ -12,7 +12,10 @@ import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
  */
 public class ProductId {
 
-    private final String value;
+    private String value;
+
+    public ProductId() {
+    }
 
     private ProductId(String value) {
         this.value = requireNonNull(value, "value");

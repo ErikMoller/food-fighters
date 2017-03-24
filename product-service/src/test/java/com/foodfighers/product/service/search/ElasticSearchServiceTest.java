@@ -9,6 +9,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.omg.CORBA.PUBLIC_MEMBER;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Read all...
  * http://127.0.0.1:9200/products/product/_search/?size=1000&pretty=1
@@ -49,7 +52,11 @@ public class ElasticSearchServiceTest {
 
     @Test
     public void put() throws Exception {
-        searchService.store(new Product(ProductId.valueOf("1"),"apple"));
+        List<Ingredient> ingredientList = new ArrayList<>();
+        ingredientList.add(Ingredient.valueOf("havre"));
+        ingredientList.add(Ingredient.valueOf("majs"));
+        Ingredients ingredients = new Ingredients(ingredientList);
+        searchService.store(Product.builder().withName("apple").withIngredients(ingredients).build());
     }
 
     @Test
@@ -60,13 +67,13 @@ public class ElasticSearchServiceTest {
 
     @Test
     public void read() throws Exception {
-        Product product = searchService.read(ProductId.valueOf("AVrEq9FLZPAroqV3da65"));
+        Product product = searchService.read(ProductId.valueOf("AVsAhxNARNa5XCKsLey9"));
         System.out.println(product);
     }
 
     @Test
     public void delete() {
-        searchService.delete(ProductId.valueOf("AVrEq9FLZPAroqV3da65"));
+        searchService.delete(ProductId.valueOf("AVr3aq2TX_NROvSX0h33"));
     }
 
     @Test

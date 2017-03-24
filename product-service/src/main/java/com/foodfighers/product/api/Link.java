@@ -9,6 +9,9 @@ public class Link {
 
     private String value;
 
+    public Link() {
+    }
+
     private Link(String value) {
         this.value = requireNonNull(value, "value");
     }
@@ -19,5 +22,9 @@ public class Link {
 
     public String getValue() {
         return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

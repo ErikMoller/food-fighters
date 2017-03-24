@@ -11,11 +11,18 @@ public class NutritionFacts {
 
     private List<NutritionFact> nutritionFacts;
 
+    public NutritionFacts() {
+    }
+
     public NutritionFacts(List<NutritionFact> nutritionFacts) {
         this.nutritionFacts = requireNonNull(nutritionFacts, "nutritionFacts");
     }
 
     public List<NutritionFact> getNutritionFacts() {
         return nutritionFacts;
+    }
+
+    public void setNutritionFacts(List<NutritionFact> nutritionFacts) {
+        this.nutritionFacts = nutritionFacts;
     }
 }

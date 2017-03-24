@@ -9,7 +9,10 @@ public class Ingredient {
 
     private String name;
 
-    private Ingredient(String name) {
+    public Ingredient() {
+    }
+
+    public Ingredient(String name) {
         this.name = requireNonNull(name, "name");
     }
 
@@ -19,5 +22,9 @@ public class Ingredient {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

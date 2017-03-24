@@ -7,6 +7,7 @@ import org.apache.http.HttpEntity;
 import org.elasticsearch.client.Response;
 import org.elasticsearch.client.RestClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ import static java.util.Objects.requireNonNull;
  * Created by erimol on 2017-03-12.
  */
 @Service
+@Profile("default")
 public class ElasticSearchService implements SearchService {
 
     public static final String ENDPOINT = "/products/product";
