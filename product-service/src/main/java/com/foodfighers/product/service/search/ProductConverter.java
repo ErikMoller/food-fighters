@@ -39,7 +39,8 @@ public class ProductConverter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new Product(ProductId.valueOf(responseHit._id),responseHit.source.getName());
+        responseHit.source.setId(ProductId.valueOf(responseHit._id));
+        return responseHit.source;
     }
 
     Products convertAll(HttpEntity httpEntity) {
@@ -51,7 +52,10 @@ public class ProductConverter {
             e.printStackTrace();
         }
         return responseHits.hits.hits.stream()
-            .map(hit -> new Product(ProductId.valueOf(hit.id),hit.source.getName()))
+            .map(hit -> {
+                hit.source.setId(ProductId.valueOf(hit.id));
+                return hit.source;
+            })
             .collect(collectingAndThen(toList(),Products::new));
     }
 

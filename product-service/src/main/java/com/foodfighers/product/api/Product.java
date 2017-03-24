@@ -32,6 +32,10 @@ public class Product {
         this.externalLink = builder.externalLink;
     }
 
+    public void setId(ProductId id) {
+        this.id = id;
+    }
+
     public ProductId getId() {
         return id;
     }
