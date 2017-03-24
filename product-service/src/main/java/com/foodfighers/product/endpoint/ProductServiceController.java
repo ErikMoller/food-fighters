@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 import static java.util.Objects.requireNonNull;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
