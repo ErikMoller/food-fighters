@@ -41,9 +41,7 @@ public class SearchTestService implements SearchService {
 
     @Override
     public Products readAll() {
-        Product product = Product.builder().withId(ProductId.valueOf("1")).build();
-        Products products = new Products(Lists.newArrayList(product));
-        return products;
+        return new Products(products.values().stream().collect(toList()));
     }
 
     @Override

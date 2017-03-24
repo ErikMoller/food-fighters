@@ -31,7 +31,7 @@ public class ProductId {
 
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this, SHORT_PREFIX_STYLE);
+        return value;
     }
 
     @Override
