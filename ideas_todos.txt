@@ -12,9 +12,18 @@ Ideas/TODO:s
 
 6.) Add docker/docker-compose for easy running test system.
 
+7.) Add spring profile also for developer mode, then start elastic in memory when running developer...
+
+8.) Look into CRaSH, could be added to all services for ssh to running application..
+
+9.) Jmx monitoring...
+
 
 Whats next
 ---------------
 1.) Add prodcuts with real values, shell app commited, use it to ingest test data into product service, and also clear data...
+	- Added first working code with post product to prodcut-service.
+	- Next, delete all data..
+	- Add json data as resource file that is useed to populate product-service.
 2.) Get search up and running with simple search + filter, then a full working product-service is up and running.
 3.) Start with gui
