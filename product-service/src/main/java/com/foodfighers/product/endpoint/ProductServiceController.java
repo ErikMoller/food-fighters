@@ -39,8 +39,8 @@ public class ProductServiceController {
     //curl -H "Content-Type: application/json" -X POST -d '{"id":"2","name":"banana"}' http://localhost:8080/v1/product
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(method = RequestMethod.POST)
-    public void insert(@RequestBody Product product) {
-        searchService.store(product);
+    public String insert(@RequestBody Product product) {
+        return searchService.store(product).getValue();
     }
 
     //curl -X DELETE http://localhost:8080/v1/product/1

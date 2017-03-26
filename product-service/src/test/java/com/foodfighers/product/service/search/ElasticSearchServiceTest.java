@@ -46,7 +46,8 @@ public class ElasticSearchServiceTest {
                 .withNutritionFacts(facts)
                 .withName("name")
                 .build();
-        searchService.store(product);
+        ProductId productId = searchService.store(product);
+        System.out.println("id: " + productId);
     }
 
     @Test

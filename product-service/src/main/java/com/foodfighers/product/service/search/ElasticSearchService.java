@@ -6,11 +6,17 @@ import com.foodfighers.product.api.Products;
 import org.apache.http.HttpEntity;
 import org.elasticsearch.client.Response;
 import org.elasticsearch.client.RestClient;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import static java.util.Collections.emptyMap;
 import static java.util.Collections.singletonMap;
@@ -37,12 +43,20 @@ public class ElasticSearchService implements SearchService {
     }
 
     @Override
-    public void store(Product product) {
+    public ProductId store(Product product) {
         try {
             HttpEntity entity = productConverter.convert(product);
-            restClient.performRequest(POST,ENDPOINT,emptyMap(),entity);
-        } catch (IOException e) {
+            Response response = restClient.performRequest(POST, ENDPOINT, emptyMap(), entity);
+            InputStream inputStream = response.getEntity().getContent();
+
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
+            JSONParser jsonParser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(bufferedReader);
+            return ProductId.valueOf((String)jsonObject.get("_id"));
+        } catch (IOException | ParseException e ) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

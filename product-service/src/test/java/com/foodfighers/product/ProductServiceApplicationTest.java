@@ -43,7 +43,8 @@ public class ProductServiceApplicationTest {
     public void getAllProducts() {
         Product product = aProduct().build();
 
-        restTemplate.postForObject("/v1/product",product,Void.class);
+        String id = restTemplate.postForObject("/v1/product", product, String.class);
+        assertNotNull(id);
         Products products = restTemplate.getForObject("/v1/product", Products.class);
 
         assertThat(products.getProducts(), hasSize(1));
@@ -53,7 +54,7 @@ public class ProductServiceApplicationTest {
     public void getProduct() {
         Product product = aProduct().build();
 
-        restTemplate.postForObject("/v1/product",product,Void.class);
+        restTemplate.postForObject("/v1/product",product,String.class);
         Products products = restTemplate.getForObject("/v1/product", Products.class);
 
         ProductId productId = products.getProducts().get(0).getId();
@@ -66,7 +67,7 @@ public class ProductServiceApplicationTest {
     public void deleteProduct() {
         Product product = aProduct().build();
 
-        restTemplate.postForObject("/v1/product",product,Void.class);
+        restTemplate.postForObject("/v1/product",product,String.class);
         Products products = restTemplate.getForObject("/v1/product", Products.class);
 
         ProductId productId = products.getProducts().get(0).getId();
@@ -81,7 +82,7 @@ public class ProductServiceApplicationTest {
     public void searchProduct() {
         Product product = aProduct().build();
 
-        restTemplate.postForObject("/v1/product",product,Void.class);
+        restTemplate.postForObject("/v1/product",product,String.class);
 
         Map<String,String> queryStrings = new HashMap<>();
         queryStrings.put("q","query");
@@ -94,7 +95,7 @@ public class ProductServiceApplicationTest {
     public void clear() {
         Product product = aProduct().build();
 
-        restTemplate.postForObject("/v1/product",product,Void.class);
+        restTemplate.postForObject("/v1/product",product,String.class);
 
         restTemplate.getForObject("/v1/product/clear",Void.class);
 

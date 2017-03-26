@@ -9,7 +9,7 @@ import com.foodfighers.product.api.Products;
  */
 public interface SearchService {
 
-    void store(Product product);
+    ProductId store(Product product);
 
     Product read(ProductId id);
 

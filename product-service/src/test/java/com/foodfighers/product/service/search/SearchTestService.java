@@ -23,10 +23,11 @@ public class SearchTestService implements SearchService {
     private Map<ProductId,Product> products = new HashMap<>();
 
     @Override
-    public void store(Product product) {
+    public ProductId store(Product product) {
         ProductId id = ProductId.valueOf(UUID.randomUUID().toString());
         product.setId(id);
         products.put(id,product);
+        return id;
     }
 
     @Override
