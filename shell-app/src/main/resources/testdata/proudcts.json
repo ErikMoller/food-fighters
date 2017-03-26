@@ -1,0 +1,208 @@
+{
+  "products": [
+    {
+      "id": {
+        "value": "AVsAkEpfRNa5XCKsLezC"
+      },
+      "name": "name",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "majs"
+          },
+          {
+            "name": "korn"
+          }
+        ]
+      },
+      "nutritionFacts": {
+        "nutritionFacts": [
+          {
+            "name": "name",
+            "measurement": {
+              "value": 10
+            },
+            "unit": "G"
+          }
+        ]
+      },
+      "externalLink": {
+        "value": "http://mathem.se"
+      }
+    },
+    {
+      "id": {
+        "value": "AVsA4akw2D0vnuyXJ-Ta"
+      },
+      "name": "name",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "majs"
+          },
+          {
+            "name": "korn"
+          }
+        ]
+      },
+      "nutritionFacts": {
+        "nutritionFacts": [
+          {
+            "name": "name",
+            "measurement": {
+              "value": 10
+            },
+            "unit": "G"
+          }
+        ]
+      },
+      "externalLink": {
+        "value": "http://mathem.se"
+      }
+    },
+    {
+      "id": {
+        "value": "AVsHMxnnCfvn9onnjJw4"
+      },
+      "name": "apple",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "erik"
+          },
+          {
+            "name": "majs"
+          }
+        ]
+      },
+      "nutritionFacts": null,
+      "externalLink": null
+    },
+    {
+      "id": {
+        "value": "AVsHNL9kCfvn9onnjJw5"
+      },
+      "name": "apple",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "erik"
+          },
+          {
+            "name": "majs"
+          }
+        ]
+      },
+      "nutritionFacts": null,
+      "externalLink": null
+    },
+    {
+      "id": {
+        "value": "AVsHNaTXCfvn9onnjJw7"
+      },
+      "name": "apple",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "erik"
+          },
+          {
+            "name": "majs"
+          }
+        ]
+      },
+      "nutritionFacts": null,
+      "externalLink": null
+    },
+    {
+      "id": {
+        "value": "AVsAj-NaRNa5XCKsLezB"
+      },
+      "name": "apple",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "havre"
+          },
+          {
+            "name": "majs"
+          }
+        ]
+      },
+      "nutritionFacts": null,
+      "externalLink": null
+    },
+    {
+      "id": {
+        "value": "AVsAhU_WRNa5XCKsLey8"
+      },
+      "name": "apple",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "korn"
+          },
+          {
+            "name": "majs"
+          }
+        ]
+      },
+      "nutritionFacts": null,
+      "externalLink": null
+    },
+    {
+      "id": {
+        "value": "AVsHNXp4Cfvn9onnjJw6"
+      },
+      "name": "apple",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "erik"
+          },
+          {
+            "name": "majs"
+          }
+        ]
+      },
+      "nutritionFacts": null,
+      "externalLink": null
+    },
+    {
+      "id": {
+        "value": "AVsAgzwVRNa5XCKsLey7"
+      },
+      "name": "apple",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "korn"
+          },
+          {
+            "name": "majs"
+          }
+        ]
+      },
+      "nutritionFacts": null,
+      "externalLink": null
+    },
+    {
+      "id": {
+        "value": "AVsHNe2WCfvn9onnjJw8"
+      },
+      "name": "apple",
+      "ingredients": {
+        "ingredients": [
+          {
+            "name": "erik"
+          },
+          {
+            "name": "majs"
+          }
+        ]
+      },
+      "nutritionFacts": null,
+      "externalLink": null
+    }
+  ]
+}

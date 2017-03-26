@@ -27,22 +27,15 @@ public class ProductServiceCommand implements CommandMarker {
     public String action(
             @CliOption(key = { "action" }, mandatory = true, help = "Specify [init|clear] as action") final DataAction action) {
 
-
-
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        String requestJson = "{\"name\":\"apple\",\"ingredients\":{\"ingredients\":[{\"name\":\"erik\"},{\"name\":\"majs\"}]},\"nutritionFacts\":null,\"externalLink\":null}";
-        HttpEntity<String> entity = new HttpEntity<String>(requestJson,headers);
-        restTemplate.postForObject("http://localhost:8080/v1/product",entity,Void.class);
         switch (action) {
             case clear:
                 logger.info("Clear products");
-                return "Cleared products";
+                clearProducts();
+                return "Done";
             case init:
                 logger.info("Init products");
-                return "Initialized products";
+                addProducts();
+                return "Done";
             default:
                 return "error";
         }
@@ -51,5 +44,20 @@ public class ProductServiceCommand implements CommandMarker {
     enum DataAction {
         clear,
         init
+    }
+
+    private void clearProducts() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        restTemplate.getForObject("http://localhost:8080/v1/product/clear",Void.class);
+    }
+
+    private void addProducts() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        String requestJson = "{\"name\":\"apple\",\"ingredients\":{\"ingredients\":[{\"name\":\"erik\"},{\"name\":\"majs\"}]},\"nutritionFacts\":null,\"externalLink\":null}";
+        HttpEntity<String> entity = new HttpEntity<String>(requestJson,headers);
+        restTemplate.postForObject("http://localhost:8080/v1/product",entity,Void.class);
     }
 }
