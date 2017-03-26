@@ -10,9 +10,16 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -102,5 +109,29 @@ public class ProductServiceApplicationTest {
         Products products = restTemplate.getForObject("/v1/product", Products.class);
 
         assertThat(products.size(), equalTo(0));
+    }
+
+    @Test
+    public void getImage() {
+        byte[] test = restTemplate.getForObject("/v1/image/id", byte[].class);
+        System.out.println(test.length);
+    }
+
+    @Test
+    public void postImage() {
+        URL resource = ProductServiceApplicationTest.class.getClassLoader().getResource("static/axa_gold_fuit.jpg");
+        MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
+        FileSystemResource fileSystemResource = new FileSystemResource(resource.getFile());
+        map.add("file",fileSystemResource);
+        map.add("id", "id for file");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+        HttpEntity<Object> request = new HttpEntity<>(map, headers);
+
+
+        String result = restTemplate.postForObject("/v1/image/upload", request, String.class);
+        System.out.println(result);
+
     }
 }
