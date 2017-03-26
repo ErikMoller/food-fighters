@@ -22,6 +22,10 @@ public class Products implements Iterable<Product> {
         this.products = requireNonNull(products, "products");
     }
 
+    public int size() {
+        return products.size();
+    }
+
     @Override
     public Iterator<Product> iterator() {
         return products.iterator();

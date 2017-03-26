@@ -18,4 +18,6 @@ public interface SearchService {
     Products readAll();
 
     Products search(Search search);
+
+    void clear();
 }

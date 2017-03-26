@@ -3,7 +3,7 @@ package com.foodfighers.product;
 import com.foodfighers.product.api.Product;
 import com.foodfighers.product.api.ProductId;
 import com.foodfighers.product.api.Products;
-import com.foodfighers.product.service.search.SearchTestService;
+import com.foodfighers.product.service.search.SearchService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.foodfighers.product.api.ProductTestBuilder.aProduct;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
@@ -31,11 +32,11 @@ public class ProductServiceApplicationTest {
     private TestRestTemplate restTemplate;
 
     @Autowired
-    private SearchTestService searchTestService;
+    private SearchService searchService;
 
     @Before
     public void beforeMethod() {
-        searchTestService.clear();
+        searchService.clear();
     }
 
     @Test
@@ -81,12 +82,24 @@ public class ProductServiceApplicationTest {
         Product product = aProduct().build();
 
         restTemplate.postForObject("/v1/product",product,Void.class);
-        Products products = restTemplate.getForObject("/v1/product", Products.class);
 
         Map<String,String> queryStrings = new HashMap<>();
         queryStrings.put("q","query");
         queryStrings.put("f","filter");
-        products = restTemplate.getForObject("/v1/product/search?q={q}&f={f}",Products.class,queryStrings);
+        Products products = restTemplate.getForObject("/v1/product/search?q={q}&f={f}",Products.class,queryStrings);
         assertThat(products.getProducts(), hasSize(1));
+    }
+
+    @Test
+    public void clear() {
+        Product product = aProduct().build();
+
+        restTemplate.postForObject("/v1/product",product,Void.class);
+
+        restTemplate.getForObject("/v1/product/clear",Void.class);
+
+        Products products = restTemplate.getForObject("/v1/product", Products.class);
+
+        assertThat(products.size(), equalTo(0));
     }
 }

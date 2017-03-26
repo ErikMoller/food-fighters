@@ -49,6 +49,7 @@ public class SearchTestService implements SearchService {
         return new Products(products.values().stream().collect(toList()));
     }
 
+    @Override
     public void clear() {
         products.clear();
     }

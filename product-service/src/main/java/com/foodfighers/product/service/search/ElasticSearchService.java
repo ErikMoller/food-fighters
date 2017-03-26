@@ -88,4 +88,13 @@ public class ElasticSearchService implements SearchService {
         }
         return productConverter.convertAll(response.getEntity());
     }
+
+    @Override
+    public void clear() {
+        try {
+            restClient.performRequest("DELETE","/products", emptyMap());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

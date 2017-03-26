@@ -55,4 +55,9 @@ public class ProductServiceController {
     public Products search(@RequestParam("q") String query, @RequestParam("f") String filter) {
         return searchService.search(Search.builder().withQuery(query).withFilter(filter).build());
     }
+
+    @RequestMapping(value = "clear", method = GET)
+    public void clear() {
+        searchService.clear();
+    }
 }

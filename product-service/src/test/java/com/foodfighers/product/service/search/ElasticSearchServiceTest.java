@@ -50,6 +50,11 @@ public class ElasticSearchServiceTest {
     }
 
     @Test
+    public void clearTest() {
+        searchService.clear();
+    }
+
+    @Test
     public void put() throws Exception {
         List<Ingredient> ingredientList = new ArrayList<>();
         ingredientList.add(Ingredient.valueOf("havre"));
