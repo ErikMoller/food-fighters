@@ -79,7 +79,8 @@ public class ProductServiceCommand implements CommandMarker {
         for (Object product : products) {
             String jsonString = ((JSONObject) product).toJSONString();
             HttpEntity<Object> entity = new HttpEntity<>(jsonString,headers);
-            restTemplate.postForObject("http://localhost:8080/v1/product",entity,Void.class);
+            String id = restTemplate.postForObject("http://localhost:8080/v1/product", entity, String.class);
+            logger.info(String.format("Created product with id %s",id));
             counter++;
         }
         logger.info(String.format("Added %s products",counter));

@@ -25,5 +25,7 @@ Whats next
 	- Added first working code with post product to prodcut-service., done
 	- Next, delete all data.., done
 	- Add json data as resource file that is useed to populate product-service, done
-2.) Get search up and running with simple search + filter, then a full working product-service is up and running.
-3.) Start with gui
+2.) Fix id:s for products when creating, done
+3.) Images service...with product ids, servive + add with shell
+4.) Get search up and running with simple search + filter, then a full working product-service is up and running.
+5.) Start with gui
