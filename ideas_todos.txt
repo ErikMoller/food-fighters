@@ -22,8 +22,8 @@ Ideas/TODO:s
 Whats next
 ---------------
 1.) Add prodcuts with real values, shell app commited, use it to ingest test data into product service, and also clear data...
-	- Added first working code with post product to prodcut-service.
-	- Next, delete all data..
-	- Add json data as resource file that is useed to populate product-service.
+	- Added first working code with post product to prodcut-service., done
+	- Next, delete all data.., done
+	- Add json data as resource file that is useed to populate product-service, done
 2.) Get search up and running with simple search + filter, then a full working product-service is up and running.
 3.) Start with gui
