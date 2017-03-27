@@ -6,6 +6,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -13,6 +14,8 @@ import org.springframework.shell.core.CommandMarker;
 import org.springframework.shell.core.annotation.CliCommand;
 import org.springframework.shell.core.annotation.CliOption;
 import org.springframework.stereotype.Component;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.BufferedReader;
@@ -81,8 +84,30 @@ public class ProductServiceCommand implements CommandMarker {
             HttpEntity<Object> entity = new HttpEntity<>(jsonString,headers);
             String id = restTemplate.postForObject("http://localhost:8080/v1/product", entity, String.class);
             logger.info(String.format("Created product with id %s",id));
+            addImage(id);
             counter++;
         }
         logger.info(String.format("Added %s products",counter));
+    }
+
+    private void addImage(String id) {
+        ClassPathResource imageResource = imageResource(id);
+        restTemplate.postForObject("http://localhost:8080/v1/image/upload", createHttpEntityRequest(imageResource, id), String.class);
+        logger.info("Added image with id " + id);
+    }
+
+    private ClassPathResource imageResource(String id) {
+        return new ClassPathResource("images/axa_gold_fuit.jpg");
+    }
+
+    private HttpEntity<Object> createHttpEntityRequest(ClassPathResource image, String imageId) {
+        MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
+        map.add("image",image);
+        map.add("id", imageId);
+        map.add("name", "imageName");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+        return new HttpEntity<>(map, headers);
     }
 }
