@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -20,7 +20,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -113,7 +112,7 @@ public class ProductServiceApplicationTest {
 
     @Test
     public void storeAndReadImage() throws IOException {
-        FileSystemResource image = loadImageForClasspath();
+        ClassPathResource image = imageResource();
         long imageSize = image.contentLength();
         String imageId = "12412";
 
@@ -123,7 +122,7 @@ public class ProductServiceApplicationTest {
         assertEquals(imageSize,actualImage.length);
     }
 
-    private HttpEntity<Object> createHttpEntityRequest(FileSystemResource image, String imageId) {
+    private HttpEntity<Object> createHttpEntityRequest(ClassPathResource image, String imageId) {
         MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
         map.add("image",image);
         map.add("id", imageId);
@@ -134,9 +133,7 @@ public class ProductServiceApplicationTest {
         return new HttpEntity<>(map, headers);
     }
 
-    private FileSystemResource loadImageForClasspath() {
-        URL resource = ProductServiceApplicationTest.class.getClassLoader().getResource("axa_gold_fuit.jpg");
-        return new FileSystemResource(resource.getFile());
+    private ClassPathResource imageResource() {
+        return new ClassPathResource("axa_gold_fuit.jpg");
     }
-
 }
