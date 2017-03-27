@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,8 +27,7 @@ import java.util.Map;
 import static com.foodfighers.product.api.ProductTestBuilder.aProduct;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 @RunWith(SpringRunner.class)
@@ -112,26 +112,31 @@ public class ProductServiceApplicationTest {
     }
 
     @Test
-    public void getImage() {
-        byte[] test = restTemplate.getForObject("/v1/image/id", byte[].class);
-        System.out.println(test.length);
+    public void storeAndReadImage() throws IOException {
+        FileSystemResource image = loadImageForClasspath();
+        long imageSize = image.contentLength();
+        String imageId = "12412";
+
+        restTemplate.postForObject("/v1/image/upload", createHttpEntityRequest(image, imageId), String.class);
+
+        byte[] actualImage = restTemplate.getForObject("/v1/image/"+imageId, byte[].class);
+        assertEquals(imageSize,actualImage.length);
     }
 
-    @Test
-    public void postImage() {
-        URL resource = ProductServiceApplicationTest.class.getClassLoader().getResource("static/axa_gold_fuit.jpg");
+    private HttpEntity<Object> createHttpEntityRequest(FileSystemResource image, String imageId) {
         MultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
-        FileSystemResource fileSystemResource = new FileSystemResource(resource.getFile());
-        map.add("file",fileSystemResource);
-        map.add("id", "id for file");
+        map.add("image",image);
+        map.add("id", imageId);
+        map.add("name", "imageName");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 
-        HttpEntity<Object> request = new HttpEntity<>(map, headers);
-
-
-        String result = restTemplate.postForObject("/v1/image/upload", request, String.class);
-        System.out.println(result);
-
+        return new HttpEntity<>(map, headers);
     }
+
+    private FileSystemResource loadImageForClasspath() {
+        URL resource = ProductServiceApplicationTest.class.getClassLoader().getResource("axa_gold_fuit.jpg");
+        return new FileSystemResource(resource.getFile());
+    }
+
 }
