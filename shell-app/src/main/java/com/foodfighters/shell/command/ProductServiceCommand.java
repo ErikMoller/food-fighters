@@ -65,29 +65,35 @@ public class ProductServiceCommand implements CommandMarker {
     }
 
     private void addProducts() throws IOException, ParseException {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        InputStream inputStream = ProductServiceCommand.class.getClassLoader().getResourceAsStream("testdata/proudcts.json");
-        System.out.println(inputStream);
-
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        JSONParser jsonParser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(bufferedReader);
-
-        JSONArray products = (JSONArray) jsonObject.get("products");
+        JSONArray products = readProductsFromClasspath();
 
         logger.info("Start adding products");
-
         int counter = 0;
         for (Object product : products) {
             String jsonString = ((JSONObject) product).toJSONString();
-            HttpEntity<Object> entity = new HttpEntity<>(jsonString,headers);
-            String id = restTemplate.postForObject("http://localhost:8080/v1/product", entity, String.class);
+            String id = submitProductToProductService(jsonString);
             logger.info(String.format("Created product with id %s",id));
             addImage(id);
             counter++;
         }
         logger.info(String.format("Added %s products",counter));
+    }
+
+    private String submitProductToProductService(String jsonString) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Object> entity = new HttpEntity<>(jsonString,headers);
+        return restTemplate.postForObject("http://localhost:8080/v1/product", entity, String.class);
+    }
+
+    private JSONArray readProductsFromClasspath() throws IOException, ParseException {
+        InputStream inputStream = ProductServiceCommand.class.getClassLoader().getResourceAsStream("testdata/proudcts.json");
+
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        JSONParser jsonParser = new JSONParser();
+        JSONObject jsonObject = (JSONObject) jsonParser.parse(bufferedReader);
+
+        return (JSONArray) jsonObject.get("products");
     }
 
     private void addImage(String id) {
