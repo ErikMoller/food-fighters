@@ -8,26 +8,71 @@
       "ingredients": {
         "ingredients": [
           {
-            "name": "majs"
+            "name": "havregryn*"
           },
           {
-            "name": "korn"
+            "name": "bananchips (banan, kokosnötsolja, socker, bananarom)"
+          },
+          {
+            "name": "veteflingor*"
+          },
+          {
+            "name": "russin"
+          },
+          {
+            "name": "ananas (ananas, socker, citronsyra)"
+          },
+          {
+            "name": "cornflakes (majsmjöl, kornmaltsirap, socker, salt)"
+          },
+          {
+            "name": "havrepuffar (havremjöl*, rismjöl, socker, kornmaltsirap, salt)"
+          },
+          {
+            "name": "papaya (papaya, socker)"
+          },
+          {
+            "name": "kokoschips (kokos, socker)"
+          },
+          {
+            "name": "kan innehålla spår av nötter"
           }
         ]
       },
       "nutritionFacts": {
         "nutritionFacts": [
           {
-            "name": "name",
+            "name": "Fett",
             "measurement": {
-              "value": 10
+              "value": 9
+            },
+            "unit": "G"
+          },
+          {
+            "name": "mättat fett",
+            "measurement": {
+              "value": 6.2
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Kolhydrat",
+            "measurement": {
+              "value": 66
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Fiber",
+            "measurement": {
+              "value": 6.6
             },
             "unit": "G"
           }
         ]
       },
       "externalLink": {
-        "value": "http://mathem.se"
+        "value": "https://www.mathem.se/varor/musli-med-frukt/f-musli-gold-fruit-750g-axa"
       }
     },
     {

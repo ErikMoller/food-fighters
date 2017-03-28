@@ -74,7 +74,7 @@ public class ProductServiceCommand implements CommandMarker {
             String imageName = JSONObject.class.cast(product.get("id")).get("value") + ".jpg";
             String jsonString = product.toJSONString();
             String id = submitProductToProductService(jsonString);
-            logger.info(String.format("Created productObject with id %s",id));
+            logger.info(String.format("Created productObject with id \"%s\"",id));
             addImage(id, imageName);
             counter++;
         }
@@ -83,7 +83,7 @@ public class ProductServiceCommand implements CommandMarker {
 
     private String submitProductToProductService(String jsonString) {
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
         HttpEntity<Object> entity = new HttpEntity<>(jsonString,headers);
         return restTemplate.postForObject("http://localhost:8080/v1/product", entity, String.class);
     }
