@@ -168,147 +168,616 @@
     },
     {
       "id": {
-        "value": "axa_gold_fruit"
+        "value": "frebaco"
       },
-      "name": "apple",
+      "name": "Musli Frukt 625g Frebaco",
       "ingredients": {
         "ingredients": [
           {
-            "name": "erik"
+            "name": "havreflingor*"
           },
           {
-            "name": "majs"
+            "name": "ananasfras (vetemjöl, fullkornshavremjöl*, kornmaltextrakt, arom, salt)"
+          },
+          {
+            "name": "veteflingor*"
+          },
+          {
+            "name": "cornflakes (majsmjöl, ,salt, kornmaltextrakt)"
+          },
+          {
+            "name": "ananas 9,3% (ananas, socker, antioxidationsmedel e330, konserveringsmedel e220)"
+          },
+          {
+            "name": "rågflingor*"
+          },
+          {
+            "name": "papaya 8,6% (papaya, socker, konserveringsmedel e220)"
+          },
+          {
+            "name": "kornflingor*"
+          },
+          {
+            "name": "banan 6,2% (banan, kokosolja, socker, arom)"
+          },
+          {
+            "name": "russin 4,9%"
+          },
+          {
+            "name": "rostad kokos 3,6%"
           }
         ]
       },
-      "nutritionFacts": null,
-      "externalLink": null
+      "nutritionFacts": {
+        "nutritionFacts": [
+          {
+            "name": "Fett",
+            "measurement": {
+              "value": 7
+            },
+            "unit": "G"
+          },
+          {
+            "name": "mättat fett",
+            "measurement": {
+              "value": 5.3
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Kolhydrat",
+            "measurement": {
+              "value": 65
+            },
+            "unit": "G"
+          },
+          {
+            "name": "sockerarter",
+            "measurement": {
+              "value": 21
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Fiber",
+            "measurement": {
+              "value": 7.2
+            },
+            "unit": "G"
+          }
+        ]
+      },
+      "externalLink": {
+        "value": "https://www.mathem.se/varor/musli-med-frukt/musli-frukt-625g-frebaco"
+      }
     },
     {
       "id": {
-        "value": "axa_gold_fruit"
+        "value": "garant"
       },
-      "name": "apple",
+      "name": "Musli Frukt & Bär 750g EKO Garant",
       "ingredients": {
         "ingredients": [
           {
-            "name": "erik"
+            "name": "havreflingor*"
           },
           {
-            "name": "majs"
+            "name": "havreflingor*"
+          },
+          {
+            "name": "veteflingor"
+          },
+          {
+            "name": "rågflingor"
+          },
+          {
+            "name": "tranbär* 5% (tranbär* 59%, socker*, rismjöl*)"
+          },
+          {
+            "name": "rostad kokos 4%"
+          },
+          {
+            "name": "rostade kornflingor* (korn*,**, salt, klumpförebyggande medel (solroslecitin))"
+          },
+          {
+            "name": "pumpafrö* 3% "
+          },
+          {
+            "name": "äpple* 2% * ekologisk råvara"
+          },
+          {
+            "name": "fullkorn"
           }
         ]
       },
-      "nutritionFacts": null,
-      "externalLink": null
+      "nutritionFacts": {
+        "nutritionFacts": [
+          {
+            "name": "Fett",
+            "measurement": {
+              "value": 6.7
+            },
+            "unit": "G"
+          },
+          {
+            "name": "mättat fett",
+            "measurement": {
+              "value": 3.4
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Kolhydrat",
+            "measurement": {
+              "value": 62
+            },
+            "unit": "G"
+          },
+          {
+            "name": "sockerarter",
+            "measurement": {
+              "value": 6.3
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Fiber",
+            "measurement": {
+              "value": 11
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Protein",
+            "measurement": {
+              "value": 10
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Salt",
+            "measurement": {
+              "value": 0.1
+            },
+            "unit": "G"
+          }
+        ]
+      },
+      "externalLink": {
+        "value": "https://www.mathem.se/varor/musli-med-frukt/musli-frukt-o-bar--750g-eko-garant"
+      }
     },
     {
       "id": {
-        "value": "axa_gold_fruit"
+        "value": "musli_mandel_risenta"
       },
-      "name": "apple",
+      "name": "Müsli Mandel & Hasselnöt 400g Risenta",
       "ingredients": {
         "ingredients": [
           {
-            "name": "erik"
+            "name": "solroskärnor"
           },
           {
-            "name": "majs"
+            "name": "boveteflakes (majs, bovete, vetefiber, havssalt)"
+          },
+          {
+            "name": "mandel 13%"
+          },
+          {
+            "name": "pumpakärnor"
+          },
+          {
+            "name": "rostade hasselnötter 5%"
+          },
+          {
+            "name": "gojibär 5% (gojibär"
+          },
+          {
+            "name": "antioxidationsmedel (svaveldioxid))"
+          },
+          {
+            "name": "cornflakes (majs, salt)"
+          },
+          {
+            "name": "quinoapuffar"
           }
         ]
       },
-      "nutritionFacts": null,
-      "externalLink": null
+      "nutritionFacts": {
+        "nutritionFacts": [
+          {
+            "name": "Fett",
+            "measurement": {
+              "value": 33
+            },
+            "unit": "G"
+          },
+          {
+            "name": "mättat fett",
+            "measurement": {
+              "value": 4
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Kolhydrat",
+            "measurement": {
+              "value": 36
+            },
+            "unit": "G"
+          },
+          {
+            "name": "sockerarter",
+            "measurement": {
+              "value": 5
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Fiber",
+            "measurement": {
+              "value": 6
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Protein",
+            "measurement": {
+              "value": 18
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Salt",
+            "measurement": {
+              "value": 0.3
+            },
+            "unit": "G"
+          }
+        ]
+      },
+      "externalLink": {
+        "value": "https://www.mathem.se/varor/musli-med-frukt/musli-gi-smart-400g-risenta-"
+      }
     },
     {
       "id": {
-        "value": "axa_gold_fruit"
+        "value": "mymuseli"
       },
-      "name": "apple",
+      "name": "Blueberry Muesli EKO 575g mymuesli",
       "ingredients": {
         "ingredients": [
           {
-            "name": "havre"
+            "name": "havre-crunchy (havregryn, veteflingor, oraffinerat rörsocker, havrekross, ohärdat palmfett, kornflingor, puffat ris, honung, kanel) 33%"
           },
           {
-            "name": "majs"
+            "name": "havregryn"
+          },
+          {
+            "name": "torkade dadeltärningar"
+          },
+          {
+            "name": "vita små choklad-dinkelbollar (socker, kakaosmör, helmjölkspulver, majsgryn, dinkelfullkornsmjöl, havssalt*, överdragsmedel gummi arabicum), sesam, kornflingor, 3% dinkelflakes (dinkelfullkornsmjöl, majsmalt, havssalt*)"
+          },
+          {
+            "name": "frystorkade blåbär"
+          },
+          {
+            "name": "rystorkade bananskivor"
+          },
+          {
+            "name": "frystorkade jordgubbsbitar"
+          },
+          {
+            "name": "rismjöl"
+          },
+          {
+            "name": "kan innehålla spår av nötter, jordnötter, soja och lupin"
           }
         ]
       },
-      "nutritionFacts": null,
-      "externalLink": null
+      "nutritionFacts": {
+        "nutritionFacts": [
+          {
+            "name": "Fett",
+            "measurement": {
+              "value": 10
+            },
+            "unit": "G"
+          },
+          {
+            "name": "mättat fett",
+            "measurement": {
+              "value": 3
+            },
+            "unit": "G"
+          },
+          {
+            "name": "kolhydrater",
+            "measurement": {
+              "value": 60
+            },
+            "unit": "G"
+          },
+          {
+            "name": "sockerarter",
+            "measurement": {
+              "value": 17
+            },
+            "unit": "G"
+          },
+          {
+            "name": "fiber",
+            "measurement": {
+              "value": 9
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Protein",
+            "measurement": {
+              "value": 11
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Salt",
+            "measurement": {
+              "value": 0.06
+            },
+            "unit": "G"
+          }
+        ]
+      },
+      "externalLink": {
+        "value": "https://www.mathem.se/varor/musli-med-frukt/blueberry-muesli-eko-575g-mymuesli"
+      }
     },
     {
       "id": {
-        "value": "axa_gold_fruit"
+        "value": "salta_frukt_musli"
       },
-      "name": "apple",
+      "name": "Müsli Frukt EKO/KRAV 750g Saltå Kvarn",
       "ingredients": {
         "ingredients": [
           {
-            "name": "korn"
+            "name": "kornflingor"
           },
           {
-            "name": "majs"
+            "name": "havregryn"
+          },
+          {
+            "name": "veteflingor"
+          },
+          {
+            "name": "rågflingor"
+          },
+          {
+            "name": "russin* (russin*, solrosolja**)"
+          },
+          {
+            "name": "aprikoser* (aprikoser*, rismjöl**)"
+          },
+          {
+            "name": "cornflakes* (majs*, rismalt*, havssalt)"
+          },
+          {
+            "name": "dadlar* (dadlar*, rismjöl**)"
+          },
+          {
+            "name": "fikon*(fikon*, rismjöl**)"
+          },
+          {
+            "name": "äpple*"
           }
         ]
       },
-      "nutritionFacts": null,
-      "externalLink": null
+      "nutritionFacts": {
+        "nutritionFacts": [
+          {
+            "name": "Fett",
+            "measurement": {
+              "value": 2.7
+            },
+            "unit": "G"
+          },
+          {
+            "name": "mättat fet",
+            "measurement": {
+              "value": 0.5
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Kolhydrat",
+            "measurement": {
+              "value": 62
+            },
+            "unit": "G"
+          },
+          {
+            "name": "sockerarter",
+            "measurement": {
+              "value": 16
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Fiber",
+            "measurement": {
+              "value": 11
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Protein",
+            "measurement": {
+              "value": 8.3
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Tiamin",
+            "measurement": {
+              "value": 0.31
+            },
+            "unit": "MG"
+          },
+          {
+            "name": "Kalium",
+            "measurement": {
+              "value": 485
+            },
+            "unit": "MG"
+          },
+          {
+            "name": "Fosfor",
+            "measurement": {
+              "value": 260
+            },
+            "unit": "MG"
+          },
+          {
+            "name": "Magnesium",
+            "measurement": {
+              "value": 79
+            },
+            "unit": "MG"
+          },
+          {
+            "name": "Järn",
+            "measurement": {
+              "value": 3.6
+            },
+            "unit": "MG"
+          },
+          {
+            "name": "Zink",
+            "measurement": {
+              "value": 1.8
+            },
+            "unit": "MG"
+          },
+          {
+            "name": "Salt",
+            "measurement": {
+              "value": 0.1
+            },
+            "unit": "G"
+          }
+        ]
+      },
+      "externalLink": {
+        "value": "https://www.mathem.se/varor/musli-med-frukt/musli-frukt-ekokrav-750g-salta-kvarn"
+      }
     },
     {
       "id": {
-        "value": "axa_gold_fruit"
+        "value": "ungsrostad_pauluns"
       },
-      "name": "apple",
+      "name": "Musli Ungsrostad Björnbär/Kardemumma 450g Pauluns",
       "ingredients": {
         "ingredients": [
           {
-            "name": "erik"
+            "name": "havreflingor"
           },
           {
-            "name": "majs"
+            "name": "veteflingor"
+          },
+          {
+            "name": "rågflingor"
+          },
+          {
+            "name": "kornflingor"
+          },
+          {
+            "name": "solroskärnor"
+          },
+          {
+            "name": "torkade dadlar"
+          },
+          {
+            "name": "linfrön"
+          },
+          {
+            "name": "pumpakärnor"
+          },
+          {
+            "name": "fiber från cikoriarot"
+          },
+          {
+            "name": "macadamianötter 3 %"
+          },
+          {
+            "name": "äppelkoncentrat"
+          },
+          {
+            "name": "torkade björnbär 2,8%"
+          },
+          {
+            "name": "chiafrön"
+          },
+          {
+            "name": "kardemumma och rapsolja. kan innehålla spår av andra nötter"
           }
         ]
       },
-      "nutritionFacts": null,
-      "externalLink": null
-    },
-    {
-      "id": {
-        "value": "axa_gold_fruit"
-      },
-      "name": "apple",
-      "ingredients": {
-        "ingredients": [
+      "nutritionFacts": {
+        "nutritionFacts": [
           {
-            "name": "korn"
+            "name": "Fett",
+            "measurement": {
+              "value": 13
+            },
+            "unit": "G"
           },
           {
-            "name": "majs"
+            "name": "mättat fett",
+            "measurement": {
+              "value": 1.7
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Kolhydrat",
+            "measurement": {
+              "value": 56
+            },
+            "unit": "G"
+          },
+          {
+            "name": "sockerarter",
+            "measurement": {
+              "value": 7.1
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Fiber",
+            "measurement": {
+              "value": 15
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Protein",
+            "measurement": {
+              "value": 12
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Salt",
+            "measurement": {
+              "value": 0.03
+            },
+            "unit": "G"
           }
         ]
       },
-      "nutritionFacts": null,
-      "externalLink": null
-    },
-    {
-      "id": {
-        "value": "axa_gold_fruit"
-      },
-      "name": "apple",
-      "ingredients": {
-        "ingredients": [
-          {
-            "name": "erik"
-          },
-          {
-            "name": "majs"
-          }
-        ]
-      },
-      "nutritionFacts": null,
-      "externalLink": null
+      "externalLink": {
+        "value": "https://www.mathem.se/varor/musli-med-frukt/musli-ungsrostad-bjornbarkardemumma-450g-pauluns"
+      }
     }
   ]
 }
