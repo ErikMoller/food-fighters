@@ -4,7 +4,7 @@
       "id": {
         "value": "axa_gold_fruit"
       },
-      "name": "name",
+      "name": "F-Müsli Gold Fruit 750g Axa",
       "ingredients": {
         "ingredients": [
           {
@@ -77,32 +77,93 @@
     },
     {
       "id": {
-        "value": "axa_gold_fruit"
+        "value": "crunchy_urtekram"
       },
-      "name": "name",
+      "name": "Superfrukt Havremusli EKO 700g Urtekram",
       "ingredients": {
         "ingredients": [
           {
-            "name": "majs"
+            "name": "dinkelcrunch* (28 %) (dinkelflingor* (47 %)"
           },
           {
-            "name": "korn"
+            "name": "rörsocker*"
+          },
+          {
+            "name": "palmolja** (rspocertifierad)"
+          },
+          {
+            "name": "rissirap*"
+          },
+          {
+            "name": "fullkornsdinkelmjöl* (11 %)"
+          },
+          {
+            "name": "puffade ris* [rismjöl*, havssalt, kornmalt*]"
+          },
+          {
+            "name": "kokos*"
+          },
+          {
+            "name": "dinkelflingor* (26 %)"
+          },
+          {
+            "name": "råggryn*"
+          },
+          {
+            "name": "dinkelflingor* (16 %) (dinkel* (93 %)"
+          },
+          {
+            "name": "honung*"
+          },
+          {
+            "name": "kornmalt*"
+          },
+          {
+            "name": "granatäppleströssel* (4 %) (granatäppelsaftkoncentrat* (50 %), majsstärkelse*)"
           }
         ]
       },
       "nutritionFacts": {
         "nutritionFacts": [
           {
-            "name": "name",
+            "name": "Fett",
             "measurement": {
-              "value": 10
+              "value": 6.1
+            },
+            "unit": "G"
+          },
+          {
+            "name": "mättat fett",
+            "measurement": {
+              "value": 2.7
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Kolhydrat",
+            "measurement": {
+              "value": 65
+            },
+            "unit": "G"
+          },
+          {
+            "name": "sockerarter",
+            "measurement": {
+              "value": 11
+            },
+            "unit": "G"
+          },
+          {
+            "name": "Fiber",
+            "measurement": {
+              "value": 8.6
             },
             "unit": "G"
           }
         ]
       },
       "externalLink": {
-        "value": "http://mathem.se"
+        "value": "https://www.mathem.se/varor/musli-med-frukt/superfrukt-havremusli-eko-700g-urtekram"
       }
     },
     {
