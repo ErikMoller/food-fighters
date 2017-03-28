@@ -69,11 +69,13 @@ public class ProductServiceCommand implements CommandMarker {
 
         logger.info("Start adding products");
         int counter = 0;
-        for (Object product : products) {
-            String jsonString = ((JSONObject) product).toJSONString();
+        for (Object productObject : products) {
+            JSONObject product = JSONObject.class.cast(productObject);
+            String imageName = JSONObject.class.cast(product.get("id")).get("value") + ".jpg";
+            String jsonString = product.toJSONString();
             String id = submitProductToProductService(jsonString);
-            logger.info(String.format("Created product with id %s",id));
-            addImage(id);
+            logger.info(String.format("Created productObject with id %s",id));
+            addImage(id, imageName);
             counter++;
         }
         logger.info(String.format("Added %s products",counter));
@@ -96,14 +98,14 @@ public class ProductServiceCommand implements CommandMarker {
         return (JSONArray) jsonObject.get("products");
     }
 
-    private void addImage(String id) {
-        ClassPathResource imageResource = imageResource(id);
+    private void addImage(String id, String imageName) {
+        ClassPathResource imageResource = imageResource(imageName);
         restTemplate.postForObject("http://localhost:8080/v1/image/upload", createHttpEntityRequest(imageResource, id), String.class);
-        logger.info("Added image with id " + id);
+        logger.info("Added image with id " + id + " and image name " + imageName);
     }
 
-    private ClassPathResource imageResource(String id) {
-        return new ClassPathResource("images/axa_gold_fuit.jpg");
+    private ClassPathResource imageResource(String imageName) {
+        return new ClassPathResource("images/"+imageName);
     }
 
     private HttpEntity<Object> createHttpEntityRequest(ClassPathResource image, String imageId) {
