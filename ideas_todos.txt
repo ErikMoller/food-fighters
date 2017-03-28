@@ -18,6 +18,12 @@ Ideas/TODO:s
 
 9.) Jmx monitoring...
 
+10.) Länk på alla ingridienser där man kan läsa mer om vad de egntligen är och varför de tillsätts, sen kan de va intressant att veta om en ingridiens är naturligt rik på fett,kolhydrat osv osv...
+
+11.) Se till att modellen, eller datat kan förädlas efterhand, lägg till länkar till intressanta data omkring innehåll osv....Kör nattliga jobb som fixar data, med de sagt kanske de inte går att varje dygn skriva in nytt data...
+
+12.) EFter ett antal träffar för en sökning kan de vara intressant att lista alla unika ingridienser som finns i dessa livsmedel.
+
 
 Whats next
 ---------------
