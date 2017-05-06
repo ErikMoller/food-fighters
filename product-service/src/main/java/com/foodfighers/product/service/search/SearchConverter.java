@@ -10,22 +10,72 @@ import org.apache.http.nio.entity.NStringEntity;
 public class SearchConverter {
 
     HttpEntity convert(Search search) {
+
+        //workging
+//String data = "{\n" +
+//        "    \"query\": {\n" +
+//        "        \"bool\" : {\n" +
+//        "            \"must\" : [ \n" +
+//        "                { \"match\": { \"nutritionFacts.nutritionFacts.name\" : \"Fett\" } },\n" +
+//        "                { \"match\": { \"nutritionFacts.nutritionFacts.unit\" : \"G\" } }\n" +
+//        "            ]\n" +
+//        "         }\n" +
+//        "    }\n" +
+//        "}";
+        //working!!1
         String data = "{\n" +
                 "  \"query\": {\n" +
                 "    \"bool\": {\n" +
-                "      \"should\": {\n" +
+                "      \"must\": [{\n" +
                 "        \"match\": {\n" +
-                "          \"name\": \"" + search.getQuery() + "\"\n" +
+                "          \"nutritionFacts.nutritionFacts.unit\": \"G\"\n" +
                 "        }\n" +
-                "      },\n" +
+                "      }," +
+                "                { \"match\": { \"nutritionFacts.nutritionFacts.name\" : \"Fett\" } }\n" +
+                "],\n" +
                 "      \"filter\": {\n" +
-                "        \"term\": {\n" +
-                "          \"name\": \"" + search.getFilter().get() + "\"\n" +
+                "       \"range\" : {\n" +
+                "            \"nutritionFacts.nutritionFacts.measurement.value\" : {\n" +
+                "                \"lt\" : 490\n," +
+                "                \"gt\" : 480\n" +
+                "            }\n" +
                 "        }\n" +
                 "      }\n" +
                 "    }\n" +
                 "  }\n" +
                 "}";
+//        String data = "{\n" +
+//                "  \"query\": {\n" +
+//                    "\"filtered\": {" +
+//                "\"query\": {" +
+//                    "    \"match\": {\n" +
+//                "      \"_all\": \"" + search.getQuery() + "\"\n" +
+//                "    }\n" +
+//                            "}}" +
+//                "  }\n" +
+//                "}";
+//        String data = "{" +
+//                " \"size\": 30," +
+//                " \"from\": 0," +
+//                "  \"query\": {" +
+//                "    \"bool\": {" +
+//                "      \"should\": {" +
+//                "        \"match\": {" +
+//                "          \"name\": \"" + search.getQuery() + "\"" +
+//                "        }" +
+//                "      }" +
+//
+//
+//
+//
+////                "      \"filter\": {" +
+////                "        \"term\": {" +
+////                "          \"name\": \"" + search.getFilter().get() + "\"" +
+////                "        }" +
+////                "      }" +
+//                "    }" +
+//                "  }" +
+//                "}";
         return new NStringEntity(
                 data, ContentType.APPLICATION_JSON);
     }

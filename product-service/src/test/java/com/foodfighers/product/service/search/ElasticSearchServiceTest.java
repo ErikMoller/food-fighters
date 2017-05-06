@@ -83,11 +83,16 @@ public class ElasticSearchServiceTest {
 
     @Test
     public void search() {
-        Products products = searchService.search(Search.builder().withFilter("orange").withQuery("orange").build());
-        System.out.println(products);
+        Products products = searchService.search(Search.builder().withFilter("").withQuery("salt").build());
 
-        products = searchService.search(Search.builder().withFilter("banana").withQuery("banana").build());
-        System.out.println(products);
+        System.out.println(products.size());
+        for (Product product : products) {
+            System.out.println("-------" + product.getName() + "-------");
+            product.getNutritionFacts().getNutritionFacts().stream()
+                    .forEach(fact -> System.out.println(fact.getName() + " " + fact.getMeasurement().getValue() + " " + fact.getUnit()));
+
+        }
+
     }
 
 }

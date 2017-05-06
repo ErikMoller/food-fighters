@@ -1,5 +1,8 @@
 package com.foodfighers.product.api;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import static java.util.Objects.requireNonNull;
 
 /**
@@ -42,5 +45,10 @@ public class NutritionFact {
 
     public void setUnit(Unit unit) {
         this.unit = unit;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

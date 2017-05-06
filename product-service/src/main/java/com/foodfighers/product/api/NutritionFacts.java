@@ -1,5 +1,8 @@
 package com.foodfighers.product.api;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.util.List;
 
 import static java.util.Objects.requireNonNull;
@@ -24,5 +27,10 @@ public class NutritionFacts {
 
     public void setNutritionFacts(List<NutritionFact> nutritionFacts) {
         this.nutritionFacts = nutritionFacts;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

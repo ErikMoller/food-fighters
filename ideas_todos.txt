@@ -24,6 +24,16 @@ Ideas/TODO:s
 
 12.) EFter ett antal träffar för en sökning kan de vara intressant att lista alla unika ingridienser som finns i dessa livsmedel.
 
+13.) Let elastic do the work, at least ingest ingridients as text and let elastic do the analys. Then there exist some plugin grok, that could be used for parsing nutrition facts and structure them as separate fields...
+
+14.) Create an image-service, it gets more fault resistence, If the image service causes errors the product search should stil be functional. 
+
+15.) Add category to products for search of ex. musli, olive ojl, sausage, ice cream, cereals. 
+
+16.) Kolla på nested types elastic för att få till filtrering på nutrition facts.
+
+17.) Skulle kunna strunta i att splita ingridients, om de blir lättare när ändå all data måste finnas aggregerad?...kan också vara bra att separera för att lista olika ingridienser....normalizera isf för att de ska heta samma t.e.x Fett, fett osv.....
+
 
 Whats next
 ---------------
